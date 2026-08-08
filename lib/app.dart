@@ -19,7 +19,7 @@ class App extends StatelessWidget {
         return MaterialApp(
           title: 'Animooo',
           debugShowCheckedModeBanner: false,
-          theme: AppTheme.dark,
+          theme: AppTheme.light,
           initialRoute: Routes.login,
           onGenerateRoute: AppRouter().generateRoute,
         );

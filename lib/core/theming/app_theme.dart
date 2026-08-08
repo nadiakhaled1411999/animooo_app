@@ -5,16 +5,16 @@ import 'font_family.dart';
 
 /// Builds the app's [ThemeData].
 ///
-/// The app follows a dark design language (see [AppColors]).
+/// The app follows a light design language (see [AppColors]).
 class AppTheme {
   AppTheme._();
 
-  static ThemeData get dark => _build();
+  static ThemeData get light => _build();
 
   static ThemeData _build() {
     final ColorScheme colorScheme = ColorScheme.fromSeed(
       seedColor: AppColors.primary,
-      brightness: Brightness.dark,
+      brightness: Brightness.light,
       primary: AppColors.primary,
       secondary: AppColors.accent,
       error: AppColors.error,
@@ -24,7 +24,7 @@ class AppTheme {
 
     return ThemeData(
       useMaterial3: true,
-      brightness: Brightness.dark,
+      brightness: Brightness.light,
       colorScheme: colorScheme,
       scaffoldBackgroundColor: AppColors.backgroundColor,
       fontFamily: FontFamilies.poppins,

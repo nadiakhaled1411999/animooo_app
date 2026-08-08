@@ -3,38 +3,27 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
-  // Backgrounds
-  static const Color backgroundColor = Color(0xFF0A0A1F);
-  static const Color surface = Color(0xFF12122E);
-  static const Color borderColor = Color(0xFF1E1E4A);
+  // ── App Figma palette ─────────────────────────────────
+  static const Color appBackground = Color(0xFFEDEDED);
+  static const Color appDarkGreen = Color(0xFF04332D);
+  static const Color appRed = Color(0xFFFC1B1A);
+  static const Color appGreen = Color(0xFF08A43A);
+  static const Color appTeal = Color(0xFF16A99F);
+  static const Color appTeal10 = Color.fromARGB(64, 26, 129, 169);
 
-  // Brand
-  static const Color primary = Color(0xFF00D4FF);
-  static const Color accent = Color(0xFF6B4EFF);
+  // ── Semantic aliases ─────────────────────────────────
+  static const Color primary = appTeal;
+  static const Color accent = appDarkGreen;
 
-  // Text
-  static const Color textPrimary = Color(0xFFFFFFFF);
-  static const Color textSecondary = Color(0xFF8888AA);
-  static const Color textDisabled = Color(0xFF3A3A6A);
+  static const Color backgroundColor = appBackground;
+  static const Color surface = appBackground;
+  static const Color borderColor = appTeal10;
 
-  // Semantic
-  static const Color error = Color(0xFFFF4E6A);
-  static const Color warning = Color(0xFFFFAA00);
-  static const Color success = Color(0xFF00E676);
+  static const Color textPrimary = appDarkGreen;
+  static const Color textSecondary = Color(0x9904332D);
+  static const Color textDisabled = Color(0x5904332D);
+
+  static const Color error = appRed;
+  static const Color warning = appRed;
+  static const Color success = appGreen;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 

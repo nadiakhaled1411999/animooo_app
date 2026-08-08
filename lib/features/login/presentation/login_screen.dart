@@ -1,8 +1,10 @@
+import 'package:animooo_app/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/constants/app_assets.dart';
+import '../../../core/theming/app_colors.dart';
 import '../../../core/theming/font_family.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -13,11 +15,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  static const Color _teal = Color(0xFF003F36);
-  static const Color _inputBackground = Color(0xFFF5F5F5);
-  static const Color _grayLabel = Color(0xFF8A8A8A);
-  static const Color _placeholder = Color(0xFFB5B5B5);
-  static const Color _error = Color(0xFFFF0000);
+
 
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
@@ -49,34 +47,34 @@ class _LoginScreenState extends State<LoginScreen> {
   }) {
     return InputDecoration(
       hintText: hint,
-      hintStyle: TextStyle(fontSize: 14.sp, color: _placeholder),
+      hintStyle: TextStyle(fontSize: 12.sp, color: const Color(0xFF6C6C6C), fontWeight: FontWeight.w400,fontFamily: FontFamilies.poppins),
       filled: true,
-      fillColor: _inputBackground,
+      fillColor: const Color(0xffEDEDED),
       isDense: true,
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       enabledBorder: _border(),
-      focusedBorder: _border(color: _teal),
-      errorBorder: _border(color: _error),
-      focusedErrorBorder: _border(color: _error),
+      focusedBorder: _border(color: Color(0xff04332D)),
+      errorBorder: _border(color: AppColors.appRed),
+      focusedErrorBorder: _border(color: AppColors.appRed),
       suffixIcon: suffixIcon,
-      errorStyle: TextStyle(fontSize: 12.sp, color: _error),
+      errorStyle: TextStyle(fontSize: 12.sp, color: AppColors.appRed),
     );
   }
 
   Widget _fieldLabel(String label) {
     return Text(
       label,
-      style: TextStyle(fontSize: 14.sp, color: _grayLabel, fontWeight: FontWeight.w500),
+      style: TextStyle(fontSize: 14.sp, color: const Color(0xff505050), fontWeight: FontWeight.w400,fontFamily: FontFamilies.poppins),
     );
   }
 
   Widget _emailField() {
     return SizedBox(
-      height: 52,
+      height: 52.h,
       child: TextFormField(
         controller: _emailController,
         keyboardType: TextInputType.emailAddress,
-        style: TextStyle(fontSize: 16.sp, color: Colors.black),
+        style: TextStyle(fontSize: 10.sp, color: Colors.black),
         decoration: _inputDecoration(hint: 'Enter your email address'),
         validator: (value) =>
             (value == null || value.trim().isEmpty) ? 'Email is required' : null,
@@ -86,19 +84,19 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _passwordField() {
     return SizedBox(
-      height: 52,
+      height: 52.h,
       child: TextFormField(
         controller: _passwordController,
         obscureText: _obscurePassword,
-        style: TextStyle(fontSize: 16.sp, color: Colors.black),
+        style: TextStyle(fontSize: 10.sp, color: Colors.black),
         decoration: _inputDecoration(
-          hint: 'Enter your password',
+          hint:"*********",
           suffixIcon: IconButton(
             onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
             icon: Icon(
               _obscurePassword ? Icons.visibility_off : Icons.visibility,
-              size: 20,
-              color: _grayLabel,
+              size: 20.sp,
+              color: const Color(0xFF686F80),
             ),
             splashRadius: 20,
           ),
@@ -118,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
         },
         child: Text(
           'Forgot Password?',
-          style: TextStyle(fontSize: 13.sp, color: _teal, fontWeight: FontWeight.w600),
+          style: TextStyle(fontSize: 10.sp, color: const Color(0xFF04332D), fontWeight: FontWeight.w600,fontFamily: FontFamilies.poppins),
         ),
       ),
     );
@@ -127,9 +125,9 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget _loginButton() {
     return SizedBox(
       width: double.infinity,
-      height: 52,
+      height: 52.h,
       child: Material(
-        color: _teal,
+        color: const Color(0xFF04332D),
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
           onTap: () {
@@ -142,9 +140,10 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Text(
               'Log In',
               style: TextStyle(
-                fontSize: 17.sp,
+                fontSize: 14.sp,
                 color: Colors.white,
-                fontWeight: FontWeight.w600,
+                fontFamily: FontFamilies.poppins,
+                fontWeight: FontWeight.w400,
               ),
             ),
           ),
@@ -156,11 +155,11 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget _signUpText() {
     return RichText(
       text: TextSpan(
-        style: TextStyle(fontSize: 14.sp, height: 1.2),
+        style: TextStyle(fontSize: 12.sp, fontFamily: FontFamilies.poppins),
         children: [
           const TextSpan(
             text: "Don't have an account? ",
-            style: TextStyle(color: _grayLabel, fontWeight: FontWeight.w400),
+            style: TextStyle(color:  Color(0xFF828282), fontWeight: FontWeight.w500, fontFamily: FontFamilies.poppins),
           ),
           WidgetSpan(
             alignment: PlaceholderAlignment.baseline,
@@ -172,9 +171,10 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Text(
                 'Sign up now',
                 style: TextStyle(
-                  color: _teal,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 14.sp,
+                  color: const Color(0xFF04332D),
+                  fontWeight: FontWeight.w500,
+                  fontSize: 12.sp,
+                  fontFamily: FontFamilies.poppins,
                 ),
               ),
             ),
@@ -195,27 +195,39 @@ class _LoginScreenState extends State<LoginScreen> {
               child: ConstrainedBox(
                 constraints: BoxConstraints(minHeight: constraints.maxHeight),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 28),
+                  padding:  EdgeInsets.symmetric(horizontal: 16.w),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(height: 32.h),
+
                       SvgPicture.asset(
                         AppAssets.logoApp,
-                        width: 120,
+                        width: 100.w,
                       ),
-                      SizedBox(height: 20.h),
-                      const Text(
+
+                       Center(
+                         child: Text(
+                          'ANIMOOO',
+                          style: TextStyle(
+                            fontFamily: FontFamilies.poppins,
+                            fontSize: 11.sp,
+                            fontWeight: FontWeight.w500,
+                            color: const Color(0xFF04332D),
+                          ),
+                                               ),
+                       ),
+                      verticalSpace( 20),
+                   Text(
                         'Log In',
                         style: TextStyle(
                           fontFamily: FontFamilies.otama,
-                          fontSize: 32,
-                          fontWeight: FontWeight.w700,
+                          fontSize: 34.sp,
+                          fontWeight: FontWeight.w400,
                           color: Colors.black,
                         ),
                       ),
-                      SizedBox(height: 36.h),
+                      verticalSpace( 40),
                       ConstrainedBox(
                         constraints: BoxConstraints(maxWidth: _formWidth(context)),
                         child: Form(
@@ -224,23 +236,23 @@ class _LoginScreenState extends State<LoginScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               _fieldLabel('Email'),
-                              const SizedBox(height: 8),
+                              verticalSpace( 6),
                               _emailField(),
-                              const SizedBox(height: 20),
+                             verticalSpace( 16),
                               _fieldLabel('Password'),
-                              const SizedBox(height: 8),
+                              verticalSpace( 6),
                               _passwordField(),
-                              const SizedBox(height: 12),
+                              verticalSpace( 12),
                               _forgotPassword(),
-                              const SizedBox(height: 32),
+                              verticalSpace( 60),
                               _loginButton(),
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(height: 48.h),
+                      verticalSpace( 150),
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 28),
+                        padding:   EdgeInsets.only(bottom: 8.h),
                         child: _signUpText(),
                       ),
                     ],
