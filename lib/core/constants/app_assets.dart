@@ -12,5 +12,5 @@ class AppAssets with PngAssets, SvgAssets {
   //     "${PngAssets.pngAssets}animal_placeholder.png";
 
   // Icons SVG
-  // static const String animalIcon = "${SvgAssets.svgAssets}animal.svg";
+  static const String logoApp = "${SvgAssets.svgAssets}logo_app.svg";
 }

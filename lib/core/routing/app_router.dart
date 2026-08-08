@@ -1,14 +1,14 @@
 import 'package:animooo_app/core/widgets/under_construction_screen.dart';
-import 'package:animooo_app/features/splash/presentation/splash_screen.dart';
+import 'package:animooo_app/features/login/presentation/login_screen.dart';
 
 import 'route_export.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.splash:
+      case Routes.login:
         return MaterialPageRoute(
-          builder: (_) => const SplashScreen(),
+          builder: (_) => const LoginScreen(),
           settings: settings,
         );
       default:

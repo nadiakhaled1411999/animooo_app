@@ -20,7 +20,7 @@ class App extends StatelessWidget {
           title: 'Animooo',
           debugShowCheckedModeBanner: false,
           theme: AppTheme.dark,
-          initialRoute: Routes.splash,
+          initialRoute: Routes.login,
           onGenerateRoute: AppRouter().generateRoute,
         );
       },
