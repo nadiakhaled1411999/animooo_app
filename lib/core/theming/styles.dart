@@ -97,6 +97,13 @@ class AppTextStyles {
 
   // ── Error ─────────────────────────────────────────────
 
+  static TextStyle font10RegularError = TextStyle(
+    fontFamily: FontFamilies.poppins,
+    fontSize: 10.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.red,
+  );
+
   static TextStyle font12RegularError = TextStyle(
     fontFamily: FontFamilies.poppins,
     fontSize: 12.sp,

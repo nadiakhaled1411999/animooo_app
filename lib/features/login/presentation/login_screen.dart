@@ -22,6 +22,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   bool _obscurePassword = true;
 
+  String? _emailError;
+  String? _passwordError;
+
   @override
   void dispose() {
     _emailController.dispose();
@@ -71,7 +74,11 @@ class _LoginScreenState extends State<LoginScreen> {
         color: AppColors.red,
       ),
       suffixIcon: suffixIcon,
-      errorStyle: AppTextStyles.font12RegularError,
+      errorStyle: const TextStyle(
+        fontSize: 0,
+        height: 0,
+        color: AppColors.red,
+      ),
     );
   }
 
@@ -82,60 +89,94 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _emailField() {
-    return SizedBox(
-      height: 52.h,
-      child: TextFormField(
-        controller: _emailController,
-        keyboardType: TextInputType.emailAddress,
-        style: AppTextStyles.font12RegularTextPrimary,
-        decoration: _inputDecoration(
-          hint: 'Enter your email address',
-        ),
-        validator: (value) {
-          if (value == null || value.trim().isEmpty) {
-            return 'Email is required';
-          }
+  Widget _fieldError(String? error) {
+    if (error == null) return const SizedBox.shrink();
 
-          return null;
-        },
+    return Padding(
+      padding: EdgeInsets.only(top: 4.h),
+      child: Text(
+        error,
+        style: AppTextStyles.font10RegularError,
       ),
     );
   }
 
-  Widget _passwordField() {
-    return SizedBox(
-      height: 52.h,
-      child: TextFormField(
-        controller: _passwordController,
-        obscureText: _obscurePassword,
-        style: AppTextStyles.font12RegularTextPrimary,
-        decoration: _inputDecoration(
-          hint: '*********',
-          suffixIcon: IconButton(
-            onPressed: () {
-              setState(() {
-                _obscurePassword = !_obscurePassword;
-              });
-            },
-            icon: Icon(
-              _obscurePassword
-                  ? Icons.visibility_off
-                  : Icons.visibility,
-              size: 20.sp,
-              color: AppColors.iconSecondary,
+  Widget _emailField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 52.h,
+          child: TextFormField(
+            controller: _emailController,
+            keyboardType: TextInputType.emailAddress,
+            style: AppTextStyles.font12RegularTextPrimary,
+            decoration: _inputDecoration(
+              hint: 'Enter your email address',
             ),
-            splashRadius: 20,
+            onChanged: (_) {
+              if (_emailError != null) {
+                setState(() => _emailError = null);
+              }
+            },
+            validator: (value) {
+              final error = (value == null || value.trim().isEmpty)
+                  ? 'Email is required'
+                  : null;
+              _emailError = error;
+              return error;
+            },
           ),
         ),
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'Password is required';
-          }
+        _fieldError(_emailError),
+      ],
+    );
+  }
 
-          return null;
-        },
-      ),
+  Widget _passwordField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 52.h,
+          child: TextFormField(
+            controller: _passwordController,
+            obscureText: _obscurePassword,
+            style: AppTextStyles.font12RegularTextPrimary,
+            decoration: _inputDecoration(
+              hint: '*********',
+              suffixIcon: IconButton(
+                onPressed: () {
+                  setState(() {
+                    _obscurePassword = !_obscurePassword;
+                  });
+                },
+                icon: Icon(
+                  _obscurePassword
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  size: 20.sp,
+                  color: AppColors.iconSecondary,
+                ),
+                splashRadius: 20,
+              ),
+            ),
+            onChanged: (_) {
+              if (_passwordError != null) {
+                setState(() => _passwordError = null);
+              }
+            },
+            validator: (value) {
+              final error = (value == null || value.isEmpty)
+                  ? 'Password is required'
+                  : null;
+              _passwordError = error;
+              return error;
+            },
+          ),
+        ),
+        _fieldError(_passwordError),
+      ],
     );
   }
 
@@ -163,9 +204,11 @@ class _LoginScreenState extends State<LoginScreen> {
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
           onTap: () {
-            if (_formKey.currentState?.validate() ?? false) {
-              // TODO: navigate to home.
-            }
+            setState(() {
+              if (_formKey.currentState?.validate() ?? false) {
+                // TODO: navigate to home.
+              }
+            });
           },
           borderRadius: BorderRadius.circular(12),
           child: Center(
