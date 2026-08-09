@@ -1,11 +1,11 @@
 import 'package:animooo_app/core/helpers/spacing.dart';
+import 'package:animooo_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../core/constants/app_assets.dart';
 import '../../../core/theming/app_colors.dart';
-import '../../../core/theming/font_family.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -15,11 +15,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
-
   final _formKey = GlobalKey<FormState>();
+
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+
   bool _obscurePassword = true;
 
   @override
@@ -37,7 +37,12 @@ class _LoginScreenState extends State<LoginScreen> {
   OutlineInputBorder _border({Color? color}) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),
-      borderSide: color == null ? BorderSide.none : BorderSide(color: color, width: 1.2),
+      borderSide: color == null
+          ? BorderSide.none
+          : BorderSide(
+              color: color,
+              width: 1.2,
+            ),
     );
   }
 
@@ -47,24 +52,33 @@ class _LoginScreenState extends State<LoginScreen> {
   }) {
     return InputDecoration(
       hintText: hint,
-      hintStyle: TextStyle(fontSize: 12.sp, color: const Color(0xFF6C6C6C), fontWeight: FontWeight.w400,fontFamily: FontFamilies.poppins),
+      hintStyle: AppTextStyles.font10RegularTextTertiary,
       filled: true,
-      fillColor: const Color(0xffEDEDED),
+      fillColor: AppColors.inputBackground,
       isDense: true,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      contentPadding: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 14,
+      ),
       enabledBorder: _border(),
-      focusedBorder: _border(color: Color(0xff04332D)),
-      errorBorder: _border(color: AppColors.appRed),
-      focusedErrorBorder: _border(color: AppColors.appRed),
+      focusedBorder: _border(
+        color: AppColors.primary,
+      ),
+      errorBorder: _border(
+        color: AppColors.red,
+      ),
+      focusedErrorBorder: _border(
+        color: AppColors.red,
+      ),
       suffixIcon: suffixIcon,
-      errorStyle: TextStyle(fontSize: 12.sp, color: AppColors.appRed),
+      errorStyle: AppTextStyles.font12RegularError,
     );
   }
 
   Widget _fieldLabel(String label) {
     return Text(
       label,
-      style: TextStyle(fontSize: 14.sp, color: const Color(0xff505050), fontWeight: FontWeight.w400,fontFamily: FontFamilies.poppins),
+      style: AppTextStyles.font14RegularTextSecondary,
     );
   }
 
@@ -74,10 +88,17 @@ class _LoginScreenState extends State<LoginScreen> {
       child: TextFormField(
         controller: _emailController,
         keyboardType: TextInputType.emailAddress,
-        style: TextStyle(fontSize: 10.sp, color: Colors.black),
-        decoration: _inputDecoration(hint: 'Enter your email address'),
-        validator: (value) =>
-            (value == null || value.trim().isEmpty) ? 'Email is required' : null,
+        style: AppTextStyles.font12RegularTextPrimary,
+        decoration: _inputDecoration(
+          hint: 'Enter your email address',
+        ),
+        validator: (value) {
+          if (value == null || value.trim().isEmpty) {
+            return 'Email is required';
+          }
+
+          return null;
+        },
       ),
     );
   }
@@ -88,21 +109,32 @@ class _LoginScreenState extends State<LoginScreen> {
       child: TextFormField(
         controller: _passwordController,
         obscureText: _obscurePassword,
-        style: TextStyle(fontSize: 10.sp, color: Colors.black),
+        style: AppTextStyles.font12RegularTextPrimary,
         decoration: _inputDecoration(
-          hint:"*********",
+          hint: '*********',
           suffixIcon: IconButton(
-            onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
+            onPressed: () {
+              setState(() {
+                _obscurePassword = !_obscurePassword;
+              });
+            },
             icon: Icon(
-              _obscurePassword ? Icons.visibility_off : Icons.visibility,
+              _obscurePassword
+                  ? Icons.visibility_off
+                  : Icons.visibility,
               size: 20.sp,
-              color: const Color(0xFF686F80),
+              color: AppColors.iconSecondary,
             ),
             splashRadius: 20,
           ),
         ),
-        validator: (value) =>
-            (value == null || value.isEmpty) ? 'Password is required' : null,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Password is required';
+          }
+
+          return null;
+        },
       ),
     );
   }
@@ -116,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
         },
         child: Text(
           'Forgot Password?',
-          style: TextStyle(fontSize: 10.sp, color: const Color(0xFF04332D), fontWeight: FontWeight.w600,fontFamily: FontFamilies.poppins),
+          style: AppTextStyles.font10SemiBoldPrimary,
         ),
       ),
     );
@@ -127,7 +159,7 @@ class _LoginScreenState extends State<LoginScreen> {
       width: double.infinity,
       height: 52.h,
       child: Material(
-        color: const Color(0xFF04332D),
+        color: AppColors.primary,
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
           onTap: () {
@@ -139,12 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Center(
             child: Text(
               'Log In',
-              style: TextStyle(
-                fontSize: 14.sp,
-                color: Colors.white,
-                fontFamily: FontFamilies.poppins,
-                fontWeight: FontWeight.w400,
-              ),
+              style: AppTextStyles.font10RegularWhite,
             ),
           ),
         ),
@@ -155,11 +182,10 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget _signUpText() {
     return RichText(
       text: TextSpan(
-        style: TextStyle(fontSize: 12.sp, fontFamily: FontFamilies.poppins),
         children: [
-          const TextSpan(
+          TextSpan(
             text: "Don't have an account? ",
-            style: TextStyle(color:  Color(0xFF828282), fontWeight: FontWeight.w500, fontFamily: FontFamilies.poppins),
+            style: AppTextStyles.font12MediumTextDisabled,
           ),
           WidgetSpan(
             alignment: PlaceholderAlignment.baseline,
@@ -170,12 +196,7 @@ class _LoginScreenState extends State<LoginScreen> {
               },
               child: Text(
                 'Sign up now',
-                style: TextStyle(
-                  color: const Color(0xFF04332D),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12.sp,
-                  fontFamily: FontFamilies.poppins,
-                ),
+                style: AppTextStyles.font12MediumPrimary,
               ),
             ),
           ),
@@ -187,72 +208,85 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
             return SingleChildScrollView(
               child: ConstrainedBox(
-                constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                constraints: BoxConstraints(
+                  minHeight: constraints.maxHeight,
+                ),
                 child: Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: 16.w),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16.w,
+                  ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-
                       SvgPicture.asset(
                         AppAssets.logoApp,
                         width: 100.w,
                       ),
 
-                       Center(
-                         child: Text(
+                      Center(
+                        child: Text(
                           'ANIMOOO',
-                          style: TextStyle(
-                            fontFamily: FontFamilies.poppins,
-                            fontSize: 11.sp,
-                            fontWeight: FontWeight.w500,
-                            color: const Color(0xFF04332D),
-                          ),
-                                               ),
-                       ),
-                      verticalSpace( 20),
-                   Text(
-                        'Log In',
-                        style: TextStyle(
-                          fontFamily: FontFamilies.otama,
-                          fontSize: 34.sp,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black,
+                          style: AppTextStyles.font11MediumPrimary,
                         ),
                       ),
-                      verticalSpace( 40),
+
+                      verticalSpace(20),
+
+                      Text(
+                        'Log In',
+                        style: AppTextStyles.font34RegularBlack,
+                      ),
+
+                      verticalSpace(40),
+
                       ConstrainedBox(
-                        constraints: BoxConstraints(maxWidth: _formWidth(context)),
+                        constraints: BoxConstraints(
+                          maxWidth: _formWidth(context),
+                        ),
                         child: Form(
                           key: _formKey,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               _fieldLabel('Email'),
-                              verticalSpace( 6),
+
+                              verticalSpace(6),
+
                               _emailField(),
-                             verticalSpace( 16),
+
+                              verticalSpace(16),
+
                               _fieldLabel('Password'),
-                              verticalSpace( 6),
+
+                              verticalSpace(6),
+
                               _passwordField(),
-                              verticalSpace( 12),
+
+                              verticalSpace(12),
+
                               _forgotPassword(),
-                              verticalSpace( 60),
+
+                              verticalSpace(60),
+
                               _loginButton(),
                             ],
                           ),
                         ),
                       ),
-                      verticalSpace( 150),
+
+                      verticalSpace(150),
+
                       Padding(
-                        padding:   EdgeInsets.only(bottom: 8.h),
+                        padding: EdgeInsets.only(
+                          bottom: 8.h,
+                        ),
                         child: _signUpText(),
                       ),
                     ],
