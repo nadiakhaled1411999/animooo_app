@@ -1,0 +1,22 @@
+import 'package:animooo_app/core/theming/styles.dart';
+import 'package:flutter/material.dart';
+
+class ForgotPassword extends StatelessWidget {
+  const ForgotPassword({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: GestureDetector(
+        onTap: () {
+          // TODO: navigate to forgot password.
+        },
+        child: Text(
+          'Forgot Password?',
+          style: AppTextStyles.font10SemiBoldPrimary,
+        ),
+      ),
+    );
+  }
+}
