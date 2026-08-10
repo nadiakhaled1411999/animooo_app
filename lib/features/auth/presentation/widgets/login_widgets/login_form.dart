@@ -2,9 +2,9 @@ import 'package:animooo_app/core/helpers/form_validators.dart';
 import 'package:animooo_app/core/helpers/spacing.dart';
 import 'package:animooo_app/core/widgets/custom_button.dart';
 import 'package:animooo_app/core/widgets/custom_text_form_field.dart';
-import 'package:animooo_app/features/login/presentation/widgets/forgot_password.dart';
+import 'package:animooo_app/features/auth/presentation/widgets/login_widgets/forgot_password.dart';
 import 'package:flutter/material.dart';
- 
+
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
 

@@ -1,6 +1,6 @@
 import 'package:animooo_app/core/widgets/under_construction_screen.dart';
-import 'package:animooo_app/features/login/presentation/login_screen.dart';
-import 'package:animooo_app/features/signup/presentation/sign_up_screen.dart';
+import 'package:animooo_app/features/auth/presentation/widgets/login_widgets/login_screen.dart';
+import 'package:animooo_app/features/auth/presentation/screens/sign_up_screen.dart';
 
 import 'route_export.dart';
 

@@ -4,8 +4,8 @@ import 'package:animooo_app/core/theming/app_colors.dart';
 import 'package:animooo_app/core/theming/styles.dart';
 import 'package:animooo_app/core/widgets/custom_button.dart';
 import 'package:animooo_app/core/widgets/custom_text_form_field.dart';
-import 'package:animooo_app/features/signup/presentation/widgets/password_validation.dart';
-import 'package:animooo_app/features/signup/presentation/widgets/profile_image_upload.dart';
+import 'package:animooo_app/features/auth/presentation/widgets/signup_widgets/password_validation.dart';
+import 'package:animooo_app/features/auth/presentation/widgets/signup_widgets/profile_image_upload.dart';
 import 'package:flutter/material.dart';
 
 class SignUpForm extends StatefulWidget {

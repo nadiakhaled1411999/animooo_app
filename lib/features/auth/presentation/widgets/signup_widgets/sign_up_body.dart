@@ -1,8 +1,8 @@
 import 'package:animooo_app/core/constants/app_assets.dart';
 import 'package:animooo_app/core/helpers/spacing.dart';
 import 'package:animooo_app/core/theming/styles.dart';
-import 'package:animooo_app/features/signup/presentation/widgets/login_text.dart';
-import 'package:animooo_app/features/signup/presentation/widgets/sign_up_form.dart';
+import 'package:animooo_app/features/auth/presentation/widgets/signup_widgets/login_text.dart';
+import 'package:animooo_app/features/auth/presentation/widgets/signup_widgets/sign_up_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
