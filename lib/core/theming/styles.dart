@@ -16,6 +16,13 @@ class AppTextStyles {
     color: AppColors.black,
   );
 
+  static TextStyle font34RegularPrimary = TextStyle(
+    fontFamily: FontFamilies.otama,
+    fontSize: 34.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.primary,
+  );
+
   // ── 14 ────────────────────────────────────────────────
 
   static TextStyle font14RegularTextSecondary = TextStyle(

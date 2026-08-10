@@ -1,19 +1,27 @@
 import 'package:animooo_app/core/helpers/form_validators.dart';
 import 'package:animooo_app/core/helpers/spacing.dart';
+import 'package:animooo_app/core/theming/app_colors.dart';
 import 'package:animooo_app/core/widgets/custom_button.dart';
 import 'package:animooo_app/core/widgets/custom_text_form_field.dart';
-import 'package:animooo_app/features/auth/presentation/widgets/login_widgets/forgot_password.dart';
 import 'package:flutter/material.dart';
 
-class LoginForm extends StatefulWidget {
-  const LoginForm({super.key});
+class ForgotPasswordForm extends StatefulWidget {
+  const ForgotPasswordForm({super.key});
 
   @override
-  State<LoginForm> createState() => _LoginFormState();
+  State<ForgotPasswordForm> createState() => _ForgotPasswordFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
   final _formKey = GlobalKey<FormState>();
+
+  final _emailController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,25 +41,15 @@ class _LoginFormState extends State<LoginForm> {
             CustomTextFormField(
               label: 'Email',
               hint: 'Enter your email address',
+              controller: _emailController,
               keyboardType: TextInputType.emailAddress,
-              textInputAction: TextInputAction.next,
-              validator: (value) =>
-                  FormValidators.required(value, 'Email is required'),
-            ),
-            verticalSpace(16),
-            CustomTextFormField(
-              label: 'Password',
-              hint: '*********',
-              isPassword: true,
               textInputAction: TextInputAction.done,
-              validator: (value) =>
-                  FormValidators.required(value, 'Password is required'),
+              validator: FormValidators.email,
+              borderColor: AppColors.inputBorder,
             ),
-            verticalSpace(12),
-            const ForgotPassword(),
             verticalSpace(60),
             CustomButton(
-              label: 'Log In',
+              label: 'Send Code',
               onPressed: () {
                 _formKey.currentState?.validate();
               },

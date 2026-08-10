@@ -1,4 +1,5 @@
 import 'package:animooo_app/core/widgets/under_construction_screen.dart';
+import 'package:animooo_app/features/auth/presentation/screens/forgot_password_screen.dart';
 import 'package:animooo_app/features/auth/presentation/widgets/login_widgets/login_screen.dart';
 import 'package:animooo_app/features/auth/presentation/screens/sign_up_screen.dart';
 
@@ -15,6 +16,11 @@ class AppRouter {
       case Routes.signUp:
         return MaterialPageRoute(
           builder: (_) => const SignUpScreen(),
+          settings: settings,
+        );
+      case Routes.forgotPassword:
+        return MaterialPageRoute(
+          builder: (_) => const ForgotPasswordScreen(),
           settings: settings,
         );
       default:

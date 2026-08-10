@@ -1,3 +1,4 @@
+import 'package:animooo_app/core/routing/routes.dart';
 import 'package:animooo_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class ForgotPassword extends StatelessWidget {
       alignment: Alignment.centerRight,
       child: GestureDetector(
         onTap: () {
-          // TODO: navigate to forgot password.
+          Navigator.pushNamed(context, Routes.forgotPassword);
         },
         child: Text(
           'Forgot Password?',
