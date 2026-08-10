@@ -18,6 +18,8 @@ class CustomTextFormField extends StatefulWidget {
     this.textInputAction,
     this.isPassword = false,
     this.onChanged,
+    this.textStyle,
+    this.borderColor,
   });
 
   final String label;
@@ -28,6 +30,8 @@ class CustomTextFormField extends StatefulWidget {
   final TextInputAction? textInputAction;
   final bool isPassword;
   final ValueChanged<String>? onChanged;
+  final TextStyle? textStyle;
+  final Color? borderColor;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -59,7 +63,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         horizontal: 16,
         vertical: 14,
       ),
-      enabledBorder: _border(),
+      enabledBorder: _border(
+        color: widget.borderColor,
+      ),
       focusedBorder: _border(
         color: AppColors.primary,
       ),
@@ -91,7 +97,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         size: 20.sp,
         color: AppColors.iconSecondary,
       ),
-      splashRadius: 20,
+      padding: EdgeInsets.zero,
+      splashRadius: 16,
     );
   }
 
@@ -115,7 +122,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 obscureText: widget.isPassword && _obscureText,
                 keyboardType: widget.keyboardType,
                 textInputAction: widget.textInputAction,
-                style: AppTextStyles.font12RegularTextPrimary,
+                style:
+                    widget.textStyle ?? AppTextStyles.font12RegularTextPrimary,
                 decoration: _inputDecoration(field.errorText),
                 onChanged: (value) {
                   field.didChange(value);

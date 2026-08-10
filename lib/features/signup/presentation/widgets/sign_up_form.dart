@@ -1,5 +1,6 @@
 import 'package:animooo_app/core/helpers/form_validators.dart';
 import 'package:animooo_app/core/helpers/spacing.dart';
+import 'package:animooo_app/core/theming/app_colors.dart';
 import 'package:animooo_app/core/theming/styles.dart';
 import 'package:animooo_app/core/widgets/custom_button.dart';
 import 'package:animooo_app/core/widgets/custom_text_form_field.dart';
@@ -97,6 +98,8 @@ class _SignUpFormState extends State<SignUpForm> {
               isPassword: true,
               textInputAction: TextInputAction.next,
               validator: FormValidators.strongPassword,
+              textStyle: AppTextStyles.font12RegularTextSecondary,
+              borderColor: AppColors.inputBorder,
               onChanged: (value) => _passwordNotifier.value = value,
             ),
             verticalSpace(8),

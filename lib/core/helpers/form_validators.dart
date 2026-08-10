@@ -28,7 +28,9 @@ class FormValidators {
   static String? strongPassword(String? value) {
     if (value == null || value.isEmpty) return 'Please enter your password';
     final isValid = passwordRequirements(value).every((r) => r.isValid);
-    if (!isValid) return 'Password does not meet all requirements';
+    if (!isValid) {
+      return 'Please add all necessary characters to create safe password.';
+    }
     return null;
   }
 
@@ -36,24 +38,24 @@ class FormValidators {
   static List<PasswordRequirement> passwordRequirements(String password) {
     return [
       PasswordRequirement(
-        label: 'Minimum of 12 characters',
+        label: 'Minimum characters 12.',
         isValid: password.length >= 12,
       ),
       PasswordRequirement(
-        label: 'Contains an uppercase letter',
+        label: 'One uppercase character.',
         isValid: password.contains(RegExp(r'[A-Z]')),
       ),
       PasswordRequirement(
-        label: 'Contains a lowercase letter',
+        label: 'One lowercase character.',
         isValid: password.contains(RegExp(r'[a-z]')),
       ),
       PasswordRequirement(
-        label: 'Contains a number',
-        isValid: password.contains(RegExp(r'[0-9]')),
+        label: 'One special character.',
+        isValid: password.contains(RegExp(r'[^A-Za-z0-9]')),
       ),
       PasswordRequirement(
-        label: 'Contains a special character',
-        isValid: password.contains(RegExp(r'[^A-Za-z0-9]')),
+        label: 'One number.',
+        isValid: password.contains(RegExp(r'[0-9]')),
       ),
     ];
   }

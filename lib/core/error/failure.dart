@@ -41,8 +41,7 @@ class ServerFailure extends Failure {
         statusCode == 401 ||
         statusCode == 403 ||
         statusCode == 422) {
-      return ServerFailure(
-          'Invalid input data. Please check and try again.');
+      return ServerFailure('Invalid input data. Please check and try again.');
     } else if (statusCode == 404) {
       return ServerFailure('The requested page or resource was not found.');
     } else if (statusCode == 409) {

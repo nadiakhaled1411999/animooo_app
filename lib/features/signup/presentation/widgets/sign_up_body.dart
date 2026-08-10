@@ -28,27 +28,24 @@ class SignUpBody extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                      Center(
-                        child: SvgPicture.asset(
-                          AppAssets.logoApp,
-                          width: 100.w,
-                        ),
+                    Center(
+                      child: SvgPicture.asset(
+                        AppAssets.logoApp,
+                        width: 100.w,
                       ),
-
-                      Center(
-                        child: Text(
-                          'ANIMOOO',
-                          style: AppTextStyles.font11MediumPrimary,
-                        ),
+                    ),
+                    Center(
+                      child: Text(
+                        'ANIMOOO',
+                        style: AppTextStyles.font11MediumPrimary,
                       ),
-
-                      verticalSpace(20),
-
+                    ),
+                    verticalSpace(20),
                     Text(
                       'Sign Up',
                       style: AppTextStyles.font34RegularBlack,
                     ),
-                    verticalSpace(24),
+                    verticalSpace(38),
                     const SignUpForm(),
                     verticalSpace(60),
                     Padding(

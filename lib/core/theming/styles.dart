@@ -41,6 +41,13 @@ class AppTextStyles {
     color: AppColors.textPrimary,
   );
 
+  static TextStyle font12RegularTextSecondary = TextStyle(
+    fontFamily: FontFamilies.poppins,
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.textSecondary,
+  );
+
   static TextStyle font12MediumTextDisabled = TextStyle(
     fontFamily: FontFamilies.poppins,
     fontSize: 12.sp,
@@ -114,6 +121,14 @@ class AppTextStyles {
     fontSize: 10.sp,
     fontWeight: FontWeightHelper.regular,
     color: AppColors.green,
+  );
+
+  static TextStyle font10RegularGreenLineThrough = TextStyle(
+    fontFamily: FontFamilies.poppins,
+    fontSize: 10.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.green,
+    decoration: TextDecoration.lineThrough,
   );
 
   static TextStyle font12RegularGreen = TextStyle(

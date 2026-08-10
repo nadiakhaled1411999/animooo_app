@@ -19,5 +19,7 @@ class AppColors {
 
   static const Color inputBackground = Color(0xFFEDEDED);
 
+  static const Color inputBorder = Color(0xFFDADADA);
+
   static const Color uploadBackground = Color(0xFFF6F6F6);
 }

@@ -8,9 +8,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// Live password strength checklist.
 ///
-/// Listens to the password field value through [password] and colors each
-/// requirement green when satisfied and red otherwise. It only appears once
-/// the user starts typing.
+/// Listens to the password field value through [password] and renders each
+/// requirement with a small bullet and text that turn green (with a
+/// strikethrough) when satisfied and red otherwise. It only appears once the
+/// user starts typing.
 class PasswordValidation extends StatelessWidget {
   const PasswordValidation({
     super.key,
@@ -53,15 +54,18 @@ class _RequirementRow extends StatelessWidget {
     final isValid = requirement.isValid;
     final color = isValid ? AppColors.green : AppColors.red;
     final style = isValid
-        ? AppTextStyles.font10RegularGreen
+        ? AppTextStyles.font10RegularGreenLineThrough
         : AppTextStyles.font10RegularError;
 
     return Row(
       children: [
-        Icon(
-          isValid ? Icons.check_circle : Icons.cancel,
-          size: 14.sp,
-          color: color,
+        Container(
+          width: 6,
+          height: 6,
+          decoration: BoxDecoration(
+            color: color,
+            shape: BoxShape.circle,
+          ),
         ),
         horizontalSpace(6),
         Expanded(
