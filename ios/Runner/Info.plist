@@ -45,7 +45,11 @@
 		<true/>
 		<key>UIApplicationSupportsIndirectInputEvents</key>
 		<true/>
-		<key>UIStatusBarHidden</key>
-		<false/>
-	</dict>
+	<key>UIStatusBarHidden</key>
+	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Animooo needs camera access to take a profile picture.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Animooo needs photo library access to choose a profile picture.</string>
+</dict>
 </plist>

@@ -1,4 +1,3 @@
-
 import 'package:animooo_app/core/helpers/font_weight_helper.dart';
 import 'package:animooo_app/core/theming/app_colors.dart';
 import 'package:animooo_app/core/theming/font_family.dart';
@@ -55,6 +54,12 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.medium,
     color: AppColors.primary,
   );
+  static TextStyle font12RegularPrimary = TextStyle(
+    fontFamily: FontFamilies.poppins,
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.primary,
+  );
 
   // ── 11 ────────────────────────────────────────────────
 
@@ -102,6 +107,20 @@ class AppTextStyles {
     fontSize: 10.sp,
     fontWeight: FontWeightHelper.regular,
     color: AppColors.red,
+  );
+
+  static TextStyle font10RegularGreen = TextStyle(
+    fontFamily: FontFamilies.poppins,
+    fontSize: 10.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.green,
+  );
+
+  static TextStyle font12RegularGreen = TextStyle(
+    fontFamily: FontFamilies.poppins,
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.green,
   );
 
   static TextStyle font12RegularError = TextStyle(

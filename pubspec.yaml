@@ -52,6 +52,9 @@ dependencies:
   # Local storage
   flutter_secure_storage: ^9.2.2
 
+  # Media & Images
+  image_picker: ^1.1.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
