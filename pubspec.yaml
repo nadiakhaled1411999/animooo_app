@@ -55,6 +55,9 @@ dependencies:
   # Media & Images
   image_picker: ^1.1.2
 
+  # OTP input
+  pinput: ^4.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

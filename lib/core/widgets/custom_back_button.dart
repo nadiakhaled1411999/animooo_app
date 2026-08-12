@@ -6,7 +6,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// Reusable back button that pops the current route.
 class CustomBackButton extends StatelessWidget {
-  const CustomBackButton({super.key});
+  const CustomBackButton({
+    super.key,
+    this.label = 'Back',
+    this.icon = Icons.arrow_back,
+  });
+
+  final String label;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +24,14 @@ class CustomBackButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
-            Icons.arrow_back,
-            size: 20.sp,
+            icon,
+            size: 22.sp,
             color: AppColors.primary,
           ),
           horizontalSpace(6),
           Text(
-            'Back',
-            style: AppTextStyles.font12MediumPrimary,
+            label,
+            style: AppTextStyles.font20RegularPrimary,
           ),
         ],
       ),

@@ -22,6 +22,21 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.regular,
     color: AppColors.primary,
   );
+ // ── 20 ────────────────────────────────────────────────
+ static TextStyle font20RegularPrimary = TextStyle(
+    fontFamily: FontFamilies.otama,
+    fontSize: 20.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.primary,
+  );
+  // ── 16 ────────────────────────────────────────────────
+
+  static TextStyle font16RegularTextPrimary = TextStyle(
+    fontFamily: FontFamilies.poppins,
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.textPrimary,
+  );
 
   // ── 14 ────────────────────────────────────────────────
 
@@ -31,7 +46,12 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.regular,
     color: AppColors.textSecondary,
   );
-
+  static TextStyle font14RegularTextDisabled = TextStyle(
+    fontFamily: FontFamilies.poppins,
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.textDisabled,
+  );
   // ── 12 ────────────────────────────────────────────────
 
   static TextStyle font12RegularTextTertiary = TextStyle(
@@ -73,6 +93,12 @@ class AppTextStyles {
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.regular,
     color: AppColors.primary,
+  );
+   static TextStyle font12RegularWhite = TextStyle(
+    fontFamily: FontFamilies.poppins,
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.white,
   );
 
   // ── 11 ────────────────────────────────────────────────
