@@ -1,5 +1,6 @@
 import 'package:animooo_app/core/helpers/form_validators.dart';
 import 'package:animooo_app/core/helpers/spacing.dart';
+import 'package:animooo_app/core/routing/routes.dart';
 import 'package:animooo_app/core/theming/app_colors.dart';
 import 'package:animooo_app/core/theming/styles.dart';
 import 'package:animooo_app/core/widgets/custom_button.dart';
@@ -54,6 +55,8 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
               textStyle: AppTextStyles.font12RegularWhite,
               onPressed: () {
                 _formKey.currentState?.validate();
+                //!
+                 Navigator.pushNamed(context, Routes.createNewPassword);
               },
             ),
           ],

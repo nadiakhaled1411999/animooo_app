@@ -9,6 +9,7 @@ class Routes {
   static const String signUp = '/signup';
   static const String forgotPassword = '/forgot-password';
   static const String otpVerification = '/otp-verification';
+  static const String createNewPassword = '/create-new-password';
   static const String home = '/home';
   static const String animalDetails = '/animal/:id';
 }
