@@ -11,8 +11,8 @@ class ForgotPassword extends StatelessWidget {
       alignment: Alignment.centerRight,
       child: GestureDetector(
         onTap: () {
-         // Navigator.pushNamed(context, Routes.forgotPassword);
-            Navigator.pushNamed(context, Routes.otpVerification);
+         Navigator.pushNamed(context, Routes.forgotPassword);
+           // Navigator.pushNamed(context, Routes.otpVerification);
         },
         child: Text(
           'Forgot Password?',

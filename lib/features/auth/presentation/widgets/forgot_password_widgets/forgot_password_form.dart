@@ -1,6 +1,7 @@
 import 'package:animooo_app/core/helpers/form_validators.dart';
 import 'package:animooo_app/core/helpers/spacing.dart';
 import 'package:animooo_app/core/theming/app_colors.dart';
+import 'package:animooo_app/core/theming/styles.dart';
 import 'package:animooo_app/core/widgets/custom_button.dart';
 import 'package:animooo_app/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
         key: _formKey,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomTextFormField(
               label: 'Email',
@@ -47,9 +48,10 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
               validator: FormValidators.email,
               borderColor: AppColors.inputBorder,
             ),
-            verticalSpace(60),
+            verticalSpace(90),
             CustomButton(
               label: 'Send Code',
+              textStyle: AppTextStyles.font12RegularWhite,
               onPressed: () {
                 _formKey.currentState?.validate();
               },

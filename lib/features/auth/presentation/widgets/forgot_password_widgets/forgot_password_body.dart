@@ -28,18 +28,18 @@ class ForgotPasswordBody extends StatelessWidget {
                   children: [
                     verticalSpace(24),
                     const CustomBackButton(),
-                    verticalSpace(48),
+                    verticalSpace(24),
                     Text(
                       'Forget Your Password ?',
-                      style: AppTextStyles.font34RegularPrimary,
+                      style: AppTextStyles.font20RegularPrimary,
                     ),
-                    verticalSpace(12),
+                    verticalSpace(5),
                     Text(
                       "Please enter the email address associated with your "
                       "account, and we'll send you OTP to reset your password.",
-                      style: AppTextStyles.font14RegularTextSecondary,
+                      style: AppTextStyles.font14RegularTextDisabled,
                     ),
-                    verticalSpace(48),
+                    verticalSpace(58),
                     const ForgotPasswordForm(),
                   ],
                 ),

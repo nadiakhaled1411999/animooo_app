@@ -57,7 +57,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       hintText: widget.hint,
       hintStyle: AppTextStyles.font10RegularTextTertiary,
       filled: true,
-      fillColor: AppColors.inputBackground,
+      fillColor: AppColors.lightGrey,
       isDense: true,
       contentPadding: const EdgeInsets.symmetric(
         horizontal: 16,
